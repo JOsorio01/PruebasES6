@@ -1,4 +1,4 @@
-import PELICULAS from '../../mock-peliculas.js';
+import { PELICULAS } from '../../mock-peliculas.js';
 
 class CustomButton extends HTMLElement {
   constructor() {
@@ -12,14 +12,14 @@ class CustomButton extends HTMLElement {
     let pelis = new Object(PELICULAS);
     let estado = true;//maneja el estado de visible/no visible
     //creación de los elementos del componente
-    let t = document.createTextNode(function() {
-      for (let p of pelis) {
-        return `${p.year} - ${p.name}`;
-      }
-    });
+    let t = "";
+    for (let p of pelis) {
+       t += (`${p.year} - ${p.name}\n`);
+    }
+
     const customButton = document.createElement('button');
     const par = document.createElement('p');
-    par.appendChild(t);
+    par.innerText = t;
     //agregar los elementos al DOM
     document.body.appendChild(customButton);
     document.body.appendChild(par);
