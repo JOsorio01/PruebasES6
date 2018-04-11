@@ -17,12 +17,14 @@ class CustomButton extends HTMLElement {
        t += (`${p.year} - ${p.name}\n`);
     }
 
+    const div = document.createElement('div');
     const customButton = document.createElement('button');
     const par = document.createElement('p');
     par.innerText = t;
     //agregar los elementos al DOM
-    document.body.appendChild(customButton);
-    document.body.appendChild(par);
+    document.body.appendChild(div);
+    div.appendChild(customButton);
+    div.appendChild(par);
 
     par.setAttribute('id', 'par');
     customButton.innerText = "Desaparecer";
